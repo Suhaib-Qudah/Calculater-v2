@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col p-3 m-5">
+        <div class="alert alert-danger position-relative text-center" style="overflow: auto;">
+            <p style="font-size: 36px;">Sorry check your numbers again.
+            <br>{{error}}
+
+        </p>
+        <img src="{{url_for('static', filename='oops.png')}}" class="float-center"/>
+
+        <a class="btn btn-dark btn-lg " href="{{url_for('home')}}" style="position: absolute;
+        
+        bottom: 10px; left:10px ; font-size: x-large;"> Go back</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content%}

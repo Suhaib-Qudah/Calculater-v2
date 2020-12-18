@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 mx-auto p-5 mt-5 card bg-secondary rounded ">
+        <form method="post">
+            <div class="form-group">
+              <label for="number1">Enter The first number</label>
+              <input type="number" name="number1" id="number1" class="form-control" placeholder="First number" aria-describedby="helpId" value="0">
+            </div>
+            <div class="form-group" id="hide">
+                <label for="number1">Enter The Second number</label>
+                <input type="number" name="number2" id="number2" class="form-control" placeholder="Second number" aria-describedby="helpId" value="0">
+              </div>
+              <div class="form-group">
+                <label for="menu">The Operations</label>
+                <select class="form-control" id="menu" name="menu">
+                    {% for operation in operations%}
+                  <option value="{{operation.value}}">{{operation.title}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="number1">
+                <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100 " type="button" name="1" onclick="display(1)" value="1">1</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="2" onclick="display(2)" value="2">2</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="3" onclick="display(3)" value="3">3</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="4" onclick="display(4)" value="4">4</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="5" onclick="display(5)" value="5">5</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="6" onclick="display(6)" value="6">6</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="display(7)" name="7" value="7">7</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="display(8)" name="8" value="8">8</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="display(9)" name="9" value="9">9</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button"  onclick="clr()" >Clear</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="display(0)" name="0" value="0">0</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="reset" onclick="del()" >Delete</button>     
+                    </label>
+                  </div>
+              </div>
+              <div class="number2">
+                <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(1)" name="1" value="1">1</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(2)" name="2" value="2">2</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(3)" name="3" value="3">3</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(4)" name="4" value="4">4</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(5)" name="5" value="5">5</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(6)" name="6" value="6">6</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(7)" name="7" value="7">7</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(8)" name="8" value="8">8</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" onclick="dis(9)" name="9" value="9">9</button>     
+                    </label>
+                  </div>
+                  <div class="btn-group btn-group-toggle  w-100" data-toggle="buttons">
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="submit"  onclick="clr2()">Clear</button>     
+               </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="button" name="0" onclick="dis(0)" value="0">0</button>     
+                    </label>
+                    <label class="btn btn-secondary w-50">
+                        <button class="btn btn-light w-100" type="reset" onclick="del2()">Delete</button>     
+                    </label>
+                  </div>
+              </div>
+
+
+              <button class="btn btn-primary w-100" type="submit">Find</button>
+        </form>
+    </div>
+
+  
+</div>
+
+
+{% if answer %}
+<div class="row">
+    <div class="col-md-6 card bg-info mx-auto mt-5 p-0">
+        <h4 class="card-header w-100 text-white font-weight-bold">The result is: </h4>
+        <p class="card-body text-white font-weight-bold" style="font-size: 2rem;">
+            The Answer is: {{answer}}
+        </p>
+    </div>
+</div>
+{% endif %}
+
+<script>
+document.querySelector(".number2").setAttribute("style", "  display: none;");  
+//function for clearing the display
+document.getElementById("number1").addEventListener("click", function(){
+    x = document.querySelector(".number2") 
+    x.setAttribute("style", "  display: none;");   
+    x = document.querySelector(".number1");
+    x.setAttribute("style", "  display: block;");   
+
+
+})
+document.getElementById("number2").addEventListener("click", function(){
+    x = document.querySelector(".number1") 
+    x.setAttribute("style", "  display: none;");  
+    x = document.querySelector(".number2");
+    x.setAttribute("style", "  display: block;");   
+})
+document.getElementById("menu").addEventListener("change", function(){
+x = document.getElementById("menu");
+if (x.value == "sin" || x.value == "cos" || x.value == "tan" || x.value == "sqrt" || x.value == "absolute" || x.value == "log" || x.value=="ln" || x.value=="e" || x.value =="factorial"){
+   document.getElementById("hide").setAttribute("style", "  display: none;"); 
+}else{
+    document.getElementById("hide").setAttribute("style", "  display: block;"); 
+  
+}
+
+if(x.value == "multiply" || x.value == "divide"){
+     document.getElementById("number1").value = 1
+     document.getElementById("number2").value = 1
+
+}else{
+    document.getElementById("number1").value = 0
+     document.getElementById("number2").value = 0  
+}
+})
+
+function clr2()
+{
+document.getElementById("number2").value = ""
+}
+function clr()
+{
+document.getElementById("number1").value = ""
+}
+function display(val)
+{
+document.getElementById("number1").value+=val
+ }
+ function del()
+{
+x=document.getElementById("number1").value
+ x= x.substring(0, x.length - 1);
+document.getElementById("number1").value = x;
+ }
+ function del2()
+{
+x=document.getElementById("number2").value
+ x= x.substring(0, x.length - 1);
+document.getElementById("number2").value = x;
+}
+
+ function dis(val)
+{
+ y =  document.getElementById("number2").value+=val
+ }
+</script>
+
+{% endblock content %}
