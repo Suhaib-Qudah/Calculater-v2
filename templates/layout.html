@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+    
+    <title>Book Contact</title>
+  </head>
+  <body id="window">
+    <input type="checkbox" id="check" hidden>
+        <header>
+            <div class="left-area">
+                <h3>
+                    Dash<span>Board</span>
+                </h3>
+            </div>
+            <label for="check" class="hidden-425">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+        
+            <div class="right-area">
+                <a href="#" class="log-btn hidden-425">Logout</a>
+                <a href="#" class="log-btn hidden-425">Login</a>
+                <button onclick="displayMenu()" class="mobile-menu"><i class="fas fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="mobile-navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign up</a></li>
+
+
+          </ul>
+        </div>
+    <div class="sidebar">
+               <div class="center">
+                   <img src="https://miro.medium.com/max/395/1*n2DxqTwROXZmkLUjTD4uXQ.jpeg" class="profile" alt="">
+                   <h4>Suhaib Qudah</h4>
+               </div>
+               <a href="{{url_for('index')}}"><i class="fas fa-user-circle"></i> <span>Home</span></a>
+               <a href="{{url_for('add')}}"><i class="fas fa-user-plus"></i> <span>Add</span></a>
+               <a href="{{url_for('contacts')}}"><i class="fas fa-book"></i> <span>Contacts</span></a>
+               <a href="#"><i class="fas fa-mail-bulk"></i> <span>Posts</span></a>
+    
+           </div>
+    
+           <div class="p-5"  id="dashboard-container">
+            {% block content%}
+            {% endblock content%}
+
+          
+           </div>
+           <footer class="bg-footer text-center text-lg-start fixed-bottom text-white">
+            <!-- Grid container -->
+            <div class="container p-4 hidden-768px">
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Footer Content</h5>
+          
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                    voluptatem veniam, est atque cumque eum delectus sint!
+                  </p>
+                </div>
+                <!--Grid column-->
+          
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Links</h5>
+          
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+          
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase mb-0">Links</h5>
+          
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+              © 2020 Copyright:
+              <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+           
+
+    
+    
+    
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
+    <script>
+      function displayMenu(){
+        x=document.querySelector('.mobile-navbar')
+        if(x.style.display == "block"){
+        x.setAttribute("style", "display: none;");}
+        else{
+          x.setAttribute("style", "display: block;");}
+        }
+        
+        window.addEventListener('resize',function() { 
+        //call to your function and check the window width
+        x=document.querySelector('.mobile-navbar');
+        var w = document.documentElement.clientWidth;
+        if(w>=768){
+         x.setAttribute("style", "display: none;");
+
+        }
+      });     
+      </script>
+  </body>
+</html>

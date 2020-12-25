@@ -1,0 +1,34 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<div class="bg-light p-3 card table-container">
+    <h1 class="border-bottom mb-5">My Contacts</h1>
+
+<table class="table table-light table-striped col-md-12">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col" class="hidden">Email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      {% for ID,contact in contacts.items() %}
+      <tr>
+        <td scope="col">{{loop.index}}</td>
+        <td scope="col">{{contact.first_name}}</td>
+        <td scope="col">{{contact.username}}</td>
+        <td scope="col" class="hidden">{{ contact.email[0]|truncate(10, True)}}</td>
+        <td scope="col" >
+          <a href="{{url_for('edit', id = ID,_method='POST')}}" class="btn tab-btn btn-primary"><i class="fas fa-edit"></i><span class="hidden">Edit</span></a>
+          <a href="{{url_for('delete', id = ID ,_method='GET')}}" class="btn tab-btn btn-danger"><i class="fas fa-trash-alt"></i><span class="hidden">Delete</span></a>
+        </td>
+      </tr>
+      {% endfor %}
+
+  </table>
+</div>
+
+
+{%endblock%}
