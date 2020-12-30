@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title%}
+<title>Tasks list</title>
+{%endblock title%}
+
+{% block content %} <select name="" id="">
+    <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+
+<div class="row pt-3 ">
+    {%for task in tasks%}
+    <div class="col-4">
+        <div class="card mb-3 bg-light">
+          <div class="card-body">
+            <h4 class="card-title mb-0">{{tasks[task].name}}</h4>
+            <small class="text-muted">{{tasks[task].last_updated}}</small>
+            <h6 class="card-subtitle text-muted mt-4">{{tasks[task].description}}</h6>
+            {% if tasks[task].priority|string == 'Priority.HIGH'  %}
+            <div class="alert alert-danger mt-2">High priority...</div>  
+            {%else%}          
+            <div class="alert alert-info mt-2">Have enough time...</div>  
+            {%endif%}
+             </div>
+            </div>
+            </div>
+    {%endfor%}
+</div>
+{% endblock content %}
