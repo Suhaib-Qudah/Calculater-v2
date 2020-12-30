@@ -31,6 +31,7 @@ tasklists = {
 
 tasks = {
     1: {
+        "group_list": "Python list",
         "name": "learn flask blueprints",
         "last_updated": "2020-04-23T18:25:43.511Z",
         "created_at": "2020-04-23T18:25:43.511Z",
@@ -39,6 +40,7 @@ tasks = {
         "description": "Etiam sit amet massa nec urna hendrerit gravida et sed ipsum."
     },
     2: {
+         "group_list": "Python list",
         "name": "learn Python enums",
         "last_updated": "2012-04-20T18:25:43.511Z",
         "created_at": "2012-04-20T18:25:43.511Z",
@@ -48,6 +50,7 @@ tasks = {
 
     },
     3:  {
+        "group_list": "Python list",
         "name": "revise OOP concepts",
         "last_updated": "2020-04-25T18:25:43.511Z",
         "created_at": "2020-04-25T18:25:43.511Z",
@@ -56,6 +59,7 @@ tasks = {
         "description": "Ut eget elit interdum neque faucibus viverra."
     },
     4:  {
+        "group_list": "Home list",
         "name": "clean keyboard",
         "last_updated": "2020-04-25T18:25:43.511Z",
         "created_at": "2020-04-25T18:25:43.511Z",
@@ -64,6 +68,7 @@ tasks = {
         "description": "Donec fermentum lacus ultrices mauris pretium, sit amet placerat felis dictum."
     },
     5:  {
+         "group_list": "Home list",
         "name": "water plants",
         "last_updated": "2020-04-25T18:25:43.511Z",
         "created_at": "2020-04-25T18:25:43.511Z",

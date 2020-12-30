@@ -2,24 +2,36 @@
 
 {% block title%}
 <title>Tasks list</title>
+<style>
+    .card{
+        height:300px ;
+    }
+</style>
 {%endblock title%}
 
-{% block content %} <select name="" id="">
-    <select id="inputState" class="form-control">
+{% block content %} 
+    <select id="inputState" class="form-control bg-dark mt-2 text-white">
         <option selected>Choose...</option>
-        <option>...</option>
+        {% for task in tasklists%}
+        <option value="{{tasklists[task].name}}">{{tasklists[task].name}}</option>
+        {% endfor %}
+
       </select>
 
 <div class="row pt-3 ">
     {%for task in tasks%}
     <div class="col-4">
-        <div class="card mb-3 bg-light">
-          <div class="card-body">
+        <div class="card mb-3 bg-dark ">
+            <div class="card-title text-center text-white">{{tasks[task].group_list}}</div>
+          <div class="card-body text-light">
             <h4 class="card-title mb-0">{{tasks[task].name}}</h4>
-            <small class="text-muted">{{tasks[task].last_updated}}</small>
-            <h6 class="card-subtitle text-muted mt-4">{{tasks[task].description}}</h6>
+            <small class="text-muted text-light">{{tasks[task].last_updated}}</small>
+            <h6 class="card-subtitle text-muted mt-4 bg-light p-3 rounded">
+                Task Description:
+                {{tasks[task].description}}
+            </h6>
             {% if tasks[task].priority|string == 'Priority.HIGH'  %}
-            <div class="alert alert-danger mt-2">High priority...</div>  
+            <div class="alert alert-danger mt-2 ">High priority...</div>  
             {%else%}          
             <div class="alert alert-info mt-2">Have enough time...</div>  
             {%endif%}
@@ -27,5 +39,22 @@
             </div>
             </div>
     {%endfor%}
+
+    <script>
+       $(document).ready(function(){
+        document.getElementById('inputState').addEventListener('click',function(){
+            compare = document.getElementById('inputState').value;
+            document.querySelectorAll('.card-title').forEach(card => addEventListener('click',function(){
+                document.getElementById('inputState').addEventListener('click',function(){
+                if (card.innerHTML != compare){
+                    card.setAttribute.style.display = 'none';
+                }})}))})
+            
+            
+                   
+                
+            
+       
+    </script>
 </div>
 {% endblock content %}

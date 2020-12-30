@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block title%}
+<title>Tasks list</title>
+{%endblock title%}
+
+{% block content %} 
+    <select id="inputState" class="form-control mt-3 bg-dark text-white">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+
+<div class="row pt-3 ">
+    {%for task in tasklists%}
+    <div class="col-lg-4 col-md-12">
+        <div class="card mb-3 bg-dark text-white">
+          <div class="card-body">
+            <h4 class="card-title mb-0 text-white">{{tasklists[task].name}}</h4>
+            <small class="text-muted text-white">{{tasklists[task].last_updated}}</small>
+            <div class="mt-4 row">
+                <div class="col-12">
+                    <h5 class="text-white mb-1">Tags:</h5>
+                </div>
+            {%for tag in tasklists[task].tags%}
+            <div class="w-50 col">
+                <div class="alert alert-secondary p-1">
+                    {{tag}}
+                </div>
+            </div>
+            {% endfor %}
+              </div>
+             </div>
+             <a href="#" class="btn btn-primary m-2">
+                 Tasks list
+             </a>
+            </div>
+            </div>
+    {%endfor%}
+</div>
+{% endblock content %}
